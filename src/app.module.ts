@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { ExampleModule } from './example/example.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { ExampleEntity } from './example/example.entity';
 
 @Module({
   imports: [
@@ -16,7 +15,7 @@ import { ExampleEntity } from './example/example.entity';
       database: process.env.POSTGRES_DATABASE,
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
-      entities: [ExampleEntity],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       logging: true
     }),
