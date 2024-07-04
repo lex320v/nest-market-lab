@@ -1,5 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ExampleService } from './example.service';
+import { IsNotEmpty } from 'class-validator';
+import { CreateLinkDto } from './dto/createLink.dto';
 
 @Controller('example')
 export class ExampleController {
@@ -11,7 +13,7 @@ export class ExampleController {
   }
 
   @Post()
-  createLink(@Body('info') info: string) {
-    return this.exampleService.createLink(info);
+  createLink(@Body() createLinkDto: CreateLinkDto) {
+    return this.exampleService.createLink(createLinkDto.info);
   }
 }
