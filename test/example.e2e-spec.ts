@@ -64,8 +64,4 @@ describe('Example', () => {
 
     expect(info.statusCode).toBe(400);
   });
-
-  afterAll(async () => {
-    await app.close();
-  });
 });
